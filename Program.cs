@@ -1,36 +1,40 @@
 ﻿using System;
 using System.Collections;
 
-namespace Algoritma_Soruları_Ödev1_3
+namespace Algoritma_Soruları_Ödev1
 {
     class Program
     {
         static void Main(string[] args)
         {
-           ArrayList kelimeler = new ArrayList() ;
-           
-           Console.WriteLine("Pozitif bir sayı giriniz: ") ;
-           int n = Convert.ToInt32(Console.ReadLine()) ;
+            Console.WriteLine("Pozitif bir tam sayi giriniz: ") ;
+            int n = Convert.ToInt32(Console.ReadLine()) ;
+            Console.WriteLine("Girdiğiniz sayi: " + n) ;
 
-           Console.WriteLine("{0} tane kelime giriniz: ", n) ;
+            ArrayList sayilar = new ArrayList();
+            int i = 0;
+            while (i < n) 
+            {
+                Console.WriteLine("{0}. Sayıyı Giriniz: ", i+1);
+                int sayi = Convert.ToInt32(Console.ReadLine());
 
-           for (int i = 0; i < n; i++)
-           {
-               string kelime = Console.ReadLine();
-               kelimeler.Add(kelime) ;
-           }
-           
-           Console.WriteLine("---Girdiğiniz kelimelerin sondan başa yazılmış hali---") ;
+                if ( sayi % 2== 0)
+                {
+                    sayilar.Add(sayi) ;
+                    i++ ;
+                }
+                else
+                    i++;
+                
+            }
+            Console.WriteLine("--- Girdiğiniz Çift Sayılar ---");
+            foreach (var a in sayilar)
+            {   Console.WriteLine(a);}
 
-             kelimeler.Reverse() ;
-             foreach (string c in kelimeler)
-             {
-                 Console.WriteLine(c);
-             }
+            if( sayilar.Count == 0)
+                Console.WriteLine("Girilen tüm sayılar tek sayıdır.") ;
+
             
-          
-               
-           
         }
     }
 }
